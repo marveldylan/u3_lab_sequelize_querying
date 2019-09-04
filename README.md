@@ -6,156 +6,113 @@
 1. Create a feature branch
 1. Clone
 
-# Sequelize
+# Sequelize Querying
 
-Let's create a project and install the [Sequelize Client](https://github.com/sequelize/cli):
-
-```sh
-cd sequelize
-npm init -y
-npm install --save-dev sequelize-cli
-```
-
-Next we will initialize a Sequelize project:
+## Setup
 
 ```sh
-npx sequelize-cli init
+cd sequelize-querying
+npm install
 ```
 
-Let's configure our Sequelize project to work with Postgres:
-
-sequelize/config/config.json
-```js
-"development": {
-    "username": "<your_username>",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "operatorsAliases": false
-  }
-```
-
-Cool, now create the Postgres database:
+Create your database:
 
 ```sh
 npx sequelize-cli db:create
 ```
 
-Next we will create a User model:
-
-```sh
-npx sequelize-cli model:generate --name user --attributes firstName:string,lastName:string,email:string
-```
-
-Below is the User model and an associated migration that will be created from the above command: 
-
-sequelize/models/user.js
-
-```js
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  const user = sequelize.define('user', {
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    email: DataTypes.STRING
-  }, {});
-  User.associate = function(models) {
-    // associations can be defined here
-  };
-  return user;
-};
-```
-
-sequelize/migrations/20190904165246-User.js
-
-```js
-'use strict';
-module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      firstName: {
-        type: Sequelize.STRING
-      },
-      lastName: {
-        type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
-    });
-  },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('users');
-  }
-};
-```
-
-Now we need to execute our migration which will create the users table in our Postgres database along with columns:
+Run the migration:
 
 ```sh
 npx sequelize-cli db:migrate
 ```
 
-> If you made a mistake, you can always rollback: `npx sequelize-cli db:migrate:undo`
-
-Now let's create a seed file:
-
-```sh
-npx sequelize-cli seed:generate --name demo-user
-```
-
-Let's edit the file sequelize/seeders/20190904165805-demo-user.js
-
-```js
-'use strict';
-
-module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('users', [{
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'demo@demo.com',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }], {});
-  },
-
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('users', null, {});
-  }
-};
-```
-
-Execute the seed file:
+Populate the database with seed data:
 
 ```sh
 npx sequelize-cli db:seed:all
 ```
 
-> Made a mistake? You can always undo: `npx sequelize-cli db:seed:undo`
-
-Drop into psql and query the database for the demo user:
+Test the database:
 
 ```sh
-psql database_development
+psql sequelize_querying_development
 SELECT * FROM users;
+```
+
+## Querying
+
+```js
+// Find all users
+// Raw SQL: SELECT * FROM users;
+
+const findAll = async () => {
+    const users = await User.findAll();
+    console.log("All users:", JSON.stringify(users, null, 4));
+}
+
+// Create a new user
+// Raw SQL: INSERT INTO users (id, firstName, lastName, email) VALUES (DEFAULT, 'Jane', 'Doe', 'jane@jane.com')
+const createUser = async () => {
+    const jane = await User.create({ firstName: "Jane", lastName: "Doe", email: "jane@jane.com" })
+    console.log("Jane's auto-generated ID:", jane.id)
+}
+
+
+// Delete everyone named "Jane"
+// Raw SQL: DELETE FROM users WHERE firstName = 'Jane'
+const destroyUser = async () => {
+    const destroyed = await User.destroy({
+        where: {
+            firstName: "Jane"
+        }
+    })
+    console.log("Destroyed:", destroyed);
+}
+
+// Change lastname "Doe" to "Smith"
+// UPDATE users SET lastName='Smith' WHERE lastName = 'Doe'
+const updateUser = async () => {
+    const updated = await User.update({ lastName: "Smith" }, {
+        where: {
+            lastName: "Doe"
+        }
+    })
+    console.log("Updated:", updated);
+}
+
+// Find all users and only show their email
+// Raw SQL: SELECT email FROM users;
+const findAllEmails = async () => {
+    const emails = await User.findAll({
+        attributes: ['email']
+    })
+    console.log("All user emails:", JSON.stringify(emails, null, 4));
+}
+
+// Find all users where firstname is John
+// Raw SQL: SELECT * FROM users WHERE firstName = "John";
+const findAllJohns = async () => {
+    const johns = await User.findAll({
+        where: {
+            firstName: "John"
+        }
+    })
+    console.log("All users with first name John:", JSON.stringify(johns, null, 4));
+}
+
+// Find all users where firstname is either John or Jane
+// Raw SQL: SELECT * FROM user WHERE firstName = "John" OR firstName = "Jane";
+const findAllJohnsOrJanes = async () => {
+    const johnOrJanes = await User.findAll({
+        where: {
+            [Op.or]: [{ firstName: "John" }, { firstName: "Jane" }]
+        }
+    })
+    console.log("All users with first name John or Jane:", JSON.stringify(johnOrJanes, null, 4));
+}
 ```
 
 ## Resources
 
-- https://sequelize.org/master/manual/migrations.html
+- https://sequelize.org/master/manual/querying.html
