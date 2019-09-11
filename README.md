@@ -8,6 +8,10 @@
 
 # Sequelize Querying
 
+> Take five minutes and read the Sequelize docs on querying: 
+>
+> - https://sequelize.org/master/manual/querying.html
+
 ## Setup
 
 ```sh
