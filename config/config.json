@@ -1,9 +1,10 @@
 {
   "development": {
-    "database": "sequelize_querying_development",
+    "database": "sequelize11_querying_development",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "operatorsAliases": false
+    "operatorsAliases": false,
+    "underscored": true
   },
   "test": {
     "username": "root",
