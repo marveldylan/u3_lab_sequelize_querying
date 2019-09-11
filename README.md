@@ -12,7 +12,9 @@
 >
 > - https://sequelize.org/master/manual/querying.html
 
-## Setup
+##
+
+Let's go into the repo:
 
 ```sh
 cd sequelize-querying
