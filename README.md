@@ -52,37 +52,37 @@ const findAll = async () => {
 }
 
 // Create a new user
-// Raw SQL: INSERT INTO users (id, firstName, lastName, email) VALUES (DEFAULT, 'Jane', 'Doe', 'jane@jane.com')
+// Raw SQL: INSERT INTO "Users" (id, first_name, last_name, email) VALUES (DEFAULT, 'Jane', 'Doe', 'jane@jane.com')
 const createUser = async () => {
-    const jane = await User.create({ firstName: "Jane", lastName: "Doe", email: "jane@jane.com" })
+    const jane = await User.create({ first_name: "Jane", last_name: "Doe", email: "jane@jane.com" })
     console.log("Jane's auto-generated ID:", jane.id)
 }
 
 
 // Delete everyone named "Jane"
-// Raw SQL: DELETE FROM users WHERE firstName = 'Jane'
+// Raw SQL: DELETE FROM "Users" WHERE first_name = 'Jane'
 const destroyUser = async () => {
     const destroyed = await User.destroy({
         where: {
-            firstName: "Jane"
+            first_name: "Jane"
         }
     })
     console.log("Destroyed:", destroyed);
 }
 
 // Change lastname "Doe" to "Smith"
-// UPDATE users SET lastName='Smith' WHERE lastName = 'Doe'
+// UPDATE "Users" SET last_name='Smith' WHERE last_name = 'Doe'
 const updateUser = async () => {
-    const updated = await User.update({ lastName: "Smith" }, {
+    const updated = await User.update({ last_name: "Smith" }, {
         where: {
-            lastName: "Doe"
+            last_name: "Doe"
         }
     })
     console.log("Updated:", updated);
 }
 
 // Find all users and only show their email
-// Raw SQL: SELECT email FROM users;
+// Raw SQL: SELECT email FROM "Users";
 const findAllEmails = async () => {
     const emails = await User.findAll({
         attributes: ['email']
@@ -91,22 +91,22 @@ const findAllEmails = async () => {
 }
 
 // Find all users where firstname is John
-// Raw SQL: SELECT * FROM users WHERE firstName = "John";
+// Raw SQL: SELECT * FROM "Users" WHERE first_name = "John";
 const findAllJohns = async () => {
     const johns = await User.findAll({
         where: {
-            firstName: "John"
+            first_name: "John"
         }
     })
     console.log("All users with first name John:", JSON.stringify(johns, null, 4));
 }
 
 // Find all users where firstname is either John or Jane
-// Raw SQL: SELECT * FROM user WHERE firstName = "John" OR firstName = "Jane";
+// Raw SQL: SELECT * FROM "Users" WHERE first_name = "John" OR first_name = "Jane";
 const findAllJohnsOrJanes = async () => {
     const johnOrJanes = await User.findAll({
         where: {
-            [Op.or]: [{ firstName: "John" }, { firstName: "Jane" }]
+            [Op.or]: [{ first_name: "John" }, { first_name: "Jane" }]
         }
     })
     console.log("All users with first name John or Jane:", JSON.stringify(johnOrJanes, null, 4));
