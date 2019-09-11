@@ -1,14 +1,10 @@
 {
-  "name": "sequelize",
+  "name": "sequelize1",
   "version": "1.0.0",
-  "description": "## Getting started",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://git.generalassemb.ly/bruno/sequelize.git"
   },
   "keywords": [],
   "author": "",

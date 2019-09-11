@@ -1,12 +1,14 @@
 {
   "development": {
-    "database": "sequelize_querying_development",
+    "database": "sequelize1_development",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "operatorsAliases": false
   },
   "test": {
-    "database": "sequelize_querying_test",
+    "username": "root",
+    "password": null,
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
@@ -14,7 +16,7 @@
   "production": {
     "username": "root",
     "password": null,
-    "database": "sequelize_querying_production",
+    "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false

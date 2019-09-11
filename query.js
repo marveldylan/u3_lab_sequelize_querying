@@ -1,9 +1,9 @@
-const { user: User } = require('./models')
+const { User } = require('./models')
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op
 
 // Find all users
-// Raw SQL: SELECT * FROM users;
+// Raw SQL: SELECT * FROM "Users";
 
 const findAll = async () => {
     const users = await User.findAll();
