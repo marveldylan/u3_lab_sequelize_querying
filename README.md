@@ -37,14 +37,14 @@ Test the database:
 
 ```sh
 psql sequelize_querying_development
-SELECT * FROM users;
+SELECT * FROM "Users";
 ```
 
 ## Querying
 
 ```js
 // Find all users
-// Raw SQL: SELECT * FROM users;
+// Raw SQL: SELECT * FROM "Users";
 
 const findAll = async () => {
     const users = await User.findAll();
