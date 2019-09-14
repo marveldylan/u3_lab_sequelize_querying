@@ -47,6 +47,12 @@ SELECT * FROM "Users";
 
 ## Querying
 
+Work with the query.js file in the repo to execute different queries:
+
+```sh
+node query.js
+```
+
 ```js
 // Find all users
 // Raw SQL: SELECT * FROM "Users";
