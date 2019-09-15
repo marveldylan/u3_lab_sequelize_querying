@@ -17,6 +17,7 @@
     "sequelize-cli": "^5.5.1"
   },
   "dependencies": {
+    "faker": "^4.1.0",
     "pg": "^7.12.1",
     "sequelize": "^5.18.4"
   }
