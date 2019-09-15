@@ -63,9 +63,9 @@ const findAll = async () => {
 }
 
 // Create a new user
-// Raw SQL: INSERT INTO "Users" (id, firstName, lastName, email, password) VALUES (DEFAULT, 'Jane', 'Doe', 'jane@jane.com', '123456789')
+// Raw SQL: INSERT INTO "Users" (id, firstName, lastName, email, userName, password, jobTitle) VALUES (DEFAULT, 'Jane', 'Doe', 'jane@jane.com', 'janedoe', '123456789', 'Systems Analyst')
 const createUser = async () => {
-    const jane = await User.create({ firstName: "Jane", lastName: "Doe", email: "jane@jane.com", password: "123456789" })
+    const jane = await User.create({ firstName: "Jane", lastName: "Doe", email: "jane@jane.com", userName: "janedoe", password: "123456789", jobTitle: "Systems Analyst" })
     console.log("Jane's auto-generated ID:", jane.id)
 }
 
