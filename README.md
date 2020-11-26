@@ -7,9 +7,9 @@
 
 # Sequelize Querying
 
-> Take five minutes and read the Sequelize docs on querying: 
->
 > - https://sequelize.org/master/manual/querying.html
+
+Sequelize comes packaged with pre built queries out of the box. Whenever we create a new model, it comes attached to 
 
 ##
 
@@ -42,7 +42,7 @@ Test the database:
 
 ```sh
 psql sequelize_querying_development
-SELECT * FROM "Users";
+SELECT * FROM users;
 ```
 
 ## Querying
