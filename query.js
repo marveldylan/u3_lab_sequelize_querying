@@ -1,5 +1,5 @@
 const { User } = require('./models')
-const Sequelize = require('sequelize');
+const Sequelize = require('sequelize')
 const Op = Sequelize.Op
 
 // Find all users
@@ -7,7 +7,6 @@ const Op = Sequelize.Op
 
 // Create a new user
 // Raw SQL: INSERT INTO users (id, firstName, lastName, email, userName, password, jobTitle) VALUES (DEFAULT, 'Jane', 'Doe', 'jane@jane.com', 'janedoe', '123456789', 'Systems Analyst')
-
 
 // Delete everyone named "Jane"
 // Raw SQL: DELETE FROM users WHERE firstName = 'Jane'
@@ -25,7 +24,8 @@ const Op = Sequelize.Op
 // Raw SQL: SELECT * FROM users WHERE firstName = "John" OR firstName = "Jane";
 
 const run = async () => {
-    await process.exit()
+  // add your functions here
+  await process.exit()
 }
 
 run()
