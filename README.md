@@ -25,19 +25,19 @@ npm install
 Create your database:
 
 ```sh
-sequelize db:create
+npx sequelize-cli db:create
 ```
 
 Run the migration:
 
 ```sh
-sequelize db:migrate
+npx sequelize-cli db:migrate
 ```
 
 Populate the database with seed data:
 
 ```sh
-sequelize db:seed:all
+npx sequelize-cli db:seed:all
 ```
 
 Test the database:
