@@ -7,7 +7,7 @@
 
 # Sequelize Querying
 
-> - https://sequelize.org/master/manual/querying.html
+> - [](https://sequelize.org/master/manual/model-querying-basics.html)
 
 Sequelize comes packaged with pre-defined query builders out of the box. Whenever we create a new model, it comes attached to that specific model.
 
