@@ -3,7 +3,7 @@ const Sequelize = require('sequelize')
 const Op = Sequelize.Op
 
 function stringify(data) {
-  return JSON.stringify(data, null, 2)
+  console.log(JSON.stringify(data, null, 2))
 }
 
 const findAllUsers = async () => {
