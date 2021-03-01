@@ -1,31 +1,59 @@
-const { User } = require('./models')
+const { User, sequelize } = require('./models')
 const Sequelize = require('sequelize')
 const Op = Sequelize.Op
 
-// Find all users
-// Raw SQL: SELECT * FROM users;
+function stringify(data) {
+  return JSON.stringify(data, null, 2)
+}
 
-// Create a new user
-// Raw SQL: INSERT INTO users (id, firstName, lastName, email, userName, password, jobTitle) VALUES (DEFAULT, 'Jane', 'Doe', 'jane@jane.com', 'janedoe', '123456789', 'Systems Analyst')
+const findAllUsers = async () => {
+  // Find all users
+  // Raw SQL: SELECT * FROM users;
+}
 
-// Delete everyone named "Jane"
-// Raw SQL: DELETE FROM users WHERE firstName = 'Jane'
+const createNewUser = async () => {
+  // Create a new user
+  // Raw SQL: INSERT INTO users (id, firstName, lastName, email, userName, password, jobTitle) VALUES (DEFAULT, 'Jane', 'Doe', 'jane@jane.com', 'janedoe', '123456789', 'Systems Analyst')
+}
 
-// Change lastname "Doe" to "Smith"
-// UPDATE users SET lastName='Smith' WHERE lastName = 'Doe'
+const deleteWhere = async () => {
+  // Delete everyone named "Jane"
+  // Raw SQL: DELETE FROM users WHERE firstName = 'Jane'
+}
 
-// Find all users and only show their email
-// Raw SQL: SELECT email FROM users;
+const updateUser = async () => {
+  // Change lastname "Doe" to "Smith"
+  // UPDATE users SET lastName='Smith' WHERE lastName = 'Doe'
+}
 
-// Find all users where firstname is John
-// Raw SQL: SELECT * FROM users WHERE firstName = "John";
+const findUsersOnlyEmail = async () => {
+  // Find all users and only show their email
+  // Raw SQL: SELECT email FROM users;
+}
 
-// Find all users where firstname is either John or Jane
-// Raw SQL: SELECT * FROM users WHERE firstName = "John" OR firstName = "Jane";
+const findAllJohns = async () => {
+  // Find all users where firstname is John
+  // Raw SQL: SELECT * FROM users WHERE firstName = "John";
+}
+
+const findJohnOrJane = async () => {
+  // Find all users where firstname is either John or Jane
+  // Raw SQL: SELECT * FROM users WHERE firstName = "John" OR firstName = "Jane";
+}
 
 const run = async () => {
-  // add your functions here
-  await process.exit()
+  try {
+    await findAllUsers()
+    await createNewUser()
+    await deleteWhere()
+    await updateUser()
+    await findUsersOnlyEmail()
+    await findAllJohns()
+    await findJohnOrJane()
+  } catch (error) {
+  } finally {
+    await sequelize.close()
+  }
 }
 
 run()
