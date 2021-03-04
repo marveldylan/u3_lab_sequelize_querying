@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "## Getting started",
   "main": "query.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://git.generalassemb.ly/bruno/sequelize-querying"
@@ -13,12 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "sequelize-cli": "^6.2.0"
-  },
   "dependencies": {
-    "faker": "^4.1.0",
+    "faker": "^5.4.0",
     "pg": "^8.5.1",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.5.0"
   }
 }

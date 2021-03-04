@@ -1,6 +1,6 @@
 {
   "development": {
-    "database": "sequelize_querying_development",
+    "database": "sequelize_querying_lab_development",
     "dialect": "postgres",
     "host": "127.0.0.1"
   },

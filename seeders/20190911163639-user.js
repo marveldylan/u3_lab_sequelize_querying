@@ -10,6 +10,14 @@ const users = [...Array(1000)].map((user) => ({
   createdAt: new Date(),
   updatedAt: new Date()
 }))
+users.forEach((u) => {
+  let randomIndex = Math.floor(Math.random() * users.length)
+  if (randomIndex % 2 === 0) {
+    users[randomIndex].firstName = 'Jane'
+  } else {
+    users[randomIndex].firstName = 'John'
+  }
+})
 
 // Will do the same as above. This is simpler for loop version.
 // const users = []
