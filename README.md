@@ -29,9 +29,9 @@ The `query.js` file has all of the necessary instructions in order to complete t
 
 ## Submission
 
-Submit a pr utilizing the **[PR Guidelines](https://github.com/SEI-R-1-25/template_pull_request)**.
+Submit a pr utilizing the **[PR Guidelines](https://github.com/SEI-R-4-26/template_pull_request)**.
 
 ## Resources
 
 - [Sequelize Querying](https://sequelize.org/master/manual/querying.html)
-- [Sequelize Cheatsheet](https://github.com/SEI-R-1-25/u3_cheatsheet_sequelize)
+- [Sequelize Cheatsheet](https://github.com/SEI-R-4-26/u3_cheatsheet_sequelize)
