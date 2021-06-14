@@ -15,7 +15,7 @@
 Once you've completed the above steps, connect to your database and make sure the entries were created:
 
 ```sh
-psql sequelize_querying_development
+psql sequelize_querying_lab_development
 ```
 
 ```SQL
