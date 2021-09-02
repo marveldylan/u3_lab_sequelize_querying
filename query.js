@@ -45,11 +45,11 @@ const run = async () => {
   try {
     await findAllUsers()
     await createNewUser()
-    await deleteWhere()
     await updateUser()
     await findUsersOnlyEmail()
     await findAllJohns()
     await findJohnOrJane()
+    await deleteWhere()
   } catch (error) {
   } finally {
     await sequelize.close()
