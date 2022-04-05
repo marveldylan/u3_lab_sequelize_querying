@@ -1,12 +1,12 @@
-const faker = require('faker')
+const falso = require('@ngneat/falso')
 
 const users = [...Array(1000)].map((user) => ({
-  firstName: faker.name.firstName(),
-  lastName: faker.name.lastName(),
-  email: faker.internet.email(),
-  username: faker.internet.userName(),
-  password: faker.internet.password(8),
-  jobTitle: faker.name.jobTitle(),
+  firstName: falso.randFirstName(),
+  lastName: falso.randLastName(),
+  email: falso.randEmail(),
+  username: falso.randUserName(),
+  password: falso.randPassword({ length: 8 }),
+  jobTitle: falso.randJobTitle(),
   createdAt: new Date(),
   updatedAt: new Date()
 }))
