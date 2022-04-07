@@ -23,13 +23,13 @@ SELECT * FROM users;
 ```
 
 In this lab, you'll practice writing queries on the provided `User` model. All of your queries will be written in the provided `query.js` file.
-You'll be utilizing the prior **[Lesson](https://github.com/SEI-R-1-25/u3_lesson_sequelize_queries)** or the [Sequelize Docs](https://sequelize.org/master/manual/querying.html) to complete this lab. Run your file to test using `node query.js`. A method called `stringify` has been provided for you to check your work.
+You'll be utilizing the prior **[Lesson](https://github.com/SEI-R-2-22/u3_lesson_sequelize_queries)** or the [Sequelize Docs](https://sequelize.org/master/manual/querying.html) to complete this lab. Run your file to test using `node query.js`. A method called `stringify` has been provided for you to check your work.
 
 The `query.js` file has all of the necessary instructions in order to complete this lab.
 
 ## Submission
 
-Submit a pr utilizing the **[PR Guidelines](https://github.com/SEI-R-4-26/template_pull_request)**.
+Submit a pr utilizing the **[PR Guidelines](https://github.com/SEI-R-2-22/template_pull_request)**.
 
 ## Resources
 
