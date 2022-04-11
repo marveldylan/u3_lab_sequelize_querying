@@ -9,26 +9,35 @@ function stringify(data) {
 const findAllUsers = async () => {
   // Find all users
   // Raw SQL: SELECT * FROM users;
+  // const users = await User.findAll();
+  // stringify(users)
 }
 
 const createNewUser = async () => {
   // Create a new user
   // Raw SQL: INSERT INTO users (id, firstName, lastName, email, userName, password, jobTitle) VALUES (DEFAULT, 'Jane', 'Doe', 'jane@jane.com', 'janedoe', '123456789', 'Systems Analyst')
+  // const newUser = await User.create({firstName: 'Jane', lastName: 'Doe', email: 'jane@jane.com', userName: 'janedoe', password: '123456789', jobTitle: 'Systems Analyst' })
+  // stringify(newUser)
 }
 
 const deleteWhere = async () => {
   // Delete everyone named "Jane"
   // Raw SQL: DELETE FROM users WHERE firstName = 'Jane'
+  // const deletedJanes = await User.destroy({where: {firstName: 'Jane'}})
+  // stringify(deletedJanes)
 }
 
 const updateUser = async () => {
   // Change lastname "Doe" to "Smith"
   // UPDATE users SET lastName='Smith' WHERE lastName = 'Doe'
+  // const updatedUsers = await User.update({lastName: 'Smith'}, {where:{lastName: 'Doe'}})
+  // stringify(updatedUsers)
 }
 
 const findUsersOnlyEmail = async () => {
   // Find all users and only show their email
   // Raw SQL: SELECT email FROM users;
+
 }
 
 const findAllJohns = async () => {
